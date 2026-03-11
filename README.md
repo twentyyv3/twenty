@@ -13,6 +13,7 @@ All other features should function as expected
 https://twentyyv3.github.io/twenty/
 ##                                                                                                    ##
 **Thanks for using twenty v1!**
+**this was completely developed by Riley/2k/Twenty**
 
 ##             ##
 
