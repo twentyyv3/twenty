@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>twenty - beta</title>
+
+<style>
+body{
+margin:0;
+font-family:Consolas, monospace;
+color:white;
+background:url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmJnOW9sMzB2N3FvZ2pnODA5N3pnd3IxdGE1em1ob2xwdXFzdjh6ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SVCSsoKU5v6ZJLk07n/giphy.webp");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.7);
+z-index:-1;
+}
+
+#boot{
+position:fixed;
+inset:0;
+background:black;
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+font-size:18px;
+letter-spacing:2px;
+z-index:999;
+}
+
+.boottext{
+opacity:0;
+animation:bootline 1s forwards;
+}
+.boottext:nth-child(2){animation-delay:1s}
+.boottext:nth-child(3){animation-delay:2s}
+.boottext:nth-child(4){animation-delay:3s}
+
+@keyframes bootline{to{opacity:1}}
+
+#app{display:none;}
+
+.topbar{
+height:42px;
+background:rgba(10,10,10,0.9);
+border-bottom:1px solid white;
+display:flex;
+align-items:center;
+padding-left:14px;
+letter-spacing:1px;
+box-shadow:0 0 12px white;
+}
+
+.wrapper{
+display:flex;
+height:calc(100vh - 42px);
+}
+
+.sidebar{
+width:220px;
+background:rgba(0,0,0,0.8);
+border-right:1px solid white;
+}
+
+.sidebar button{
+width:100%;
+background:none;
+border:none;
+border-bottom:1px solid rgba(255,255,255,0.15);
+color:white;
+padding:14px;
+text-align:left;
+cursor:pointer;
+transition:.25s;
+}
+
+.sidebar button:hover{
+background:rgba(255,255,255,0.1);
+box-shadow:0 0 10px white;
+}
+
+.content{
+flex:1;
+padding:25px;
+overflow:auto;
+}
+
+.section{
+display:none;
+animation:fade .35s ease;
+}
+
+.section.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(8px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.link{
+display:block;
+padding:10px;
+margin-bottom:8px;
+border:1px solid white;
+text-decoration:none;
+color:white;
+transition:.2s;
+}
+
+.link:hover{
+background:rgba(255,255,255,0.08);
+box-shadow:0 0 12px white;
+padding-left:16px;
+}
+
+.search{
+margin-bottom:20px;
+}
+
+.search input{
+width:100%;
+padding:10px;
+background:black;
+border:1px solid white;
+color:white;
+font-family:Consolas;
+outline:none;
+}
+
+.search input:focus{
+box-shadow:0 0 10px white;
+}
+
+#logo{
+animation:fontcycle 6s infinite;
+}
+
+@keyframes fontcycle{
+0%{font-family:Consolas, monospace;}
+25%{font-family:Courier New, monospace;}
+50%{font-family:Lucida Console, monospace;}
+75%{font-family:monospace;}
+100%{font-family:Consolas, monospace;}
+}
+</style>
+
+<script>
+function openTab(id){
+let sections=document.querySelectorAll(".section");
+sections.forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+function searchLinks(){
+let input=document.getElementById("searchbar").value.toLowerCase();
+let links=document.querySelectorAll(".link");
+
+links.forEach(link=>{
+let text=link.innerText.toLowerCase();
+let section=link.closest(".section");
+
+if(text.includes(input)){
+link.style.display="block";
+section.style.display="block";
+}else{
+link.style.display="none";
+}
+});
+}
+
+window.onload=function(){
+setTimeout(()=>{
+document.getElementById("boot").style.display="none";
+document.getElementById("app").style.display="block";
+},4500);
+}
+</script>
+
+</head>
+<body>
+
+<div id="boot">
+<div class="boottext">initializing interface</div>
+<div class="boottext">loading modules</div>
+<div class="boottext">starting twenty framework</div>
+<div class="boottext">ready</div>
+</div>
+
+<div id="app">
+
+<div class="topbar">
+<span id="logo">twenty</span> - beta
+</div>
+
+<div class="wrapper">
+
+<div class="sidebar">
+<button onclick="openTab('games')">unblocked games</button>
+<button onclick="openTab('hubs')">unblocked game hubs</button>
+<button onclick="openTab('tools')">tools</button>
+<button onclick="openTab('credits')">credits</button>
+</div>
+
+<div class="content">
+
+<div class="search">
+<input id="searchbar" onkeyup="searchLinks()" placeholder="search links...">
+</div>
+
+<div id="games" class="section active">
+<h2>unblocked games</h2>
+<a class="link" href="https://unblocked-games.s3.amazonaws.com/index.html" target="_blank">freezenova</a>
+</div>
+
+<div id="hubs" class="section">
+<h2>unblocked game hubs</h2>
+<a class="link" href="https://shrimpgames.neocities.org/" target="_blank">shrimpisgud</a>
+</div>
+
+<div id="tools" class="section">
+<h2>tools</h2>
+
+<div id="calcTutorial" style="display:none; padding:15px; border:1px solid white; background:rgba(0,0,0,0.85);">
+<p>drag this link into your bookmarks bar:</p>
+
+<a href="javascript:(function(){alert('twenty calc bookmarklet')})();"
+style="color:white;border:1px solid white;padding:6px;text-decoration:none;display:inline-block;margin-bottom:10px;">
+twenty-calc
+</a>
+
+<br>
+<button id="doneCalcTutorial" style="padding:6px;margin-top:6px;cursor:pointer;">done</button>
+</div>
+
+<a class="link" href="#" id="showCalcTutorial">twenty calculator</a>
+
+<script>
+document.getElementById("showCalcTutorial").onclick=function(e){
+e.preventDefault();
+document.getElementById("calcTutorial").style.display="block";
+}
+
+document.getElementById("doneCalcTutorial").onclick=function(){
+document.getElementById("calcTutorial").style.display="none";
+}
+</script>
+
+</div>
+
+<div id="credits" class="section">
+<h2>credits</h2>
+<p>made by riley</p>
+<p>languages used:</p>
+<p>html</p>
+<p>css</p>
+<p>javascript</p>
+</div>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
