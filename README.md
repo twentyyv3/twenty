@@ -11,5 +11,5 @@ All other features should function as expected
 ##                                                                                                    ##
 > Base Site:
 https://twentyyv3.github.io/twenty/
-##                                                                                                    ##8
-###**Thanks for using twenty v1!**
+##                                                                                                    ##
+##**Thanks for using twenty v1!**
