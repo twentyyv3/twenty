@@ -1,4 +1,4 @@
-![200](https://github.com/user-attachments/assets/28dcf2dd-74fc-4572-8528-a1e8ed26ecb2)<img width="225" height="225" alt="images" src="https://github.com/user-attachments/assets/81daef50-3552-4877-bd59-5adedd25d825" />
+<img width="225" height="225" alt="images" src="https://github.com/user-attachments/assets/81daef50-3552-4877-bd59-5adedd25d825" />
 
 ##                                                                                                    ##
 ! Issues:
