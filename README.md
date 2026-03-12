@@ -3,7 +3,7 @@
 ##                                                                                                    ##
 ! Issues:
 
-Bookmark feature is currently broken — fix planned
+ Backround music is broken, some links may be broken or blocked.
 ##                                                                                                    ##
 Search works, but clearing all filters does not reset results; all items still show
 ##                                                                                                    ##
@@ -11,12 +11,12 @@ Search works, but clearing all filters does not reset results; all items still s
 
 All other features should function as expected
 ##                                                                                                    ##
-**adding more games, examples. Fnf, Fnaf, osumania, eagler craft and more! Thats why we have a search bar!!**
+**UPDATE LOG: added new games so uh cool**
 ##                                                                                                    ##
 > Base Site:
 https://twentyyv3.github.io/twenty/
 ##                                                                                                    ##
-**Thanks for using twenty v1!**
+**Thanks for using twenty v14**
 **this was completely developed by Riley/2K/Twenty**
 
 ##             ##
