@@ -156,36 +156,6 @@ animation:fontcycle 6s infinite;
 }
 </style>
 
-<script>
-function openTab(id){
-let sections=document.querySelectorAll(".section");
-sections.forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-}
-
-function searchLinks(){
-let input=document.getElementById("searchbar").value.toLowerCase();
-let links=document.querySelectorAll(".link");
-
-links.forEach(link=>{
-let text=link.innerText.toLowerCase();
-
-if(text.includes(input)){
-link.style.display="block";
-}else{
-link.style.display="none";
-}
-});
-}
-
-window.onload=function(){
-setTimeout(()=>{
-document.getElementById("boot").style.display="none";
-document.getElementById("app").style.display="block";
-},4500);
-}
-</script>
-
 </head>
 <body>
 
@@ -220,7 +190,6 @@ document.getElementById("app").style.display="block";
 <div id="games" class="section active">
 <h2>unblocked games</h2>
 
-<a class="link" href="https://unblocked-games.s3.amazonaws.com/index.html" target="_blank">freezenova</a>
 <a class="link" href="https://turbowarp.org/220672247?fps=120&offscreen&limitless&hqpen" target="_blank">osu mania turbowarp</a>
 <a class="link" href="https://jcw87.github.io/c2-sans-fight/" target="_blank">sans fight</a>
 <a class="link" href="https://levixddlmao.github.io/FNF-UNBLOCKED/funkplay/index.html" target="_blank">funkplay(fnf)</a>
@@ -233,37 +202,12 @@ document.getElementById("app").style.display="block";
 
 <div id="hubs" class="section">
 <h2>unblocked game hubs</h2>
+<a class="link" href="https://unblocked-games.s3.amazonaws.com/index.html" target="_blank">freezenova</a>
 <a class="link" href="https://shrimpgames.neocities.org/" target="_blank">shrimpisgud</a>
 </div>
 
 <div id="tools" class="section">
 <h2>tools</h2>
-
-<div id="calcTutorial" style="display:none; padding:15px; border:1px solid white; background:rgba(0,0,0,0.85);">
-<p>drag this link into your bookmarks bar:</p>
-
-<a href="javascript:(function(){alert('twenty calc bookmarklet')})();"
-style="color:white;border:1px solid white;padding:6px;text-decoration:none;display:inline-block;margin-bottom:10px;">
-twenty-calc
-</a>
-
-<br>
-<button id="doneCalcTutorial" style="padding:6px;margin-top:6px;cursor:pointer;">done</button>
-</div>
-
-<a class="link" href="#" id="showCalcTutorial">twenty calculator</a>
-
-<script>
-document.getElementById("showCalcTutorial").onclick=function(e){
-e.preventDefault();
-document.getElementById("calcTutorial").style.display="block";
-}
-
-document.getElementById("doneCalcTutorial").onclick=function(){
-document.getElementById("calcTutorial").style.display="none";
-}
-</script>
-
 </div>
 
 <div id="credits" class="section">
@@ -278,6 +222,77 @@ document.getElementById("calcTutorial").style.display="none";
 </div>
 </div>
 </div>
+
+<!-- background music -->
+<audio id="bgmusic" autoplay loop>
+<source src="bk.mp3" type="audio/mpeg">
+</audio>
+
+<!-- mute button bottom right -->
+<button id="muteBtn" style="position:fixed;bottom:15px;right:15px;background:black;color:white;border:1px solid white;padding:8px 12px;font-family:Consolas, monospace;cursor:pointer;z-index:9999;">
+mute
+</button>
+
+<script>
+function openTab(id){
+let sections=document.querySelectorAll(".section");
+sections.forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+function searchLinks(){
+let input=document.getElementById("searchbar").value.toLowerCase();
+let links=document.querySelectorAll(".link");
+
+links.forEach(link=>{
+let text=link.innerText.toLowerCase();
+
+if(text.includes(input)){
+link.style.display="block";
+}else{
+link.style.display="none";
+}
+});
+}
+
+window.onload=function(){
+setTimeout(()=>{
+document.getElementById("boot").style.display="none";
+document.getElementById("app").style.display="block";
+},4500);
+}
+
+/* sound effects */
+const buttonSound = new Audio("buttonclick.mp3");
+const linkSound = new Audio("linkpress.mp3");
+
+/* background music */
+const bgmusic = document.getElementById("bgmusic");
+const muteBtn = document.getElementById("muteBtn");
+
+/* play sounds on click */
+document.addEventListener("click", function(e){
+if(e.target.tagName === "BUTTON"){
+buttonSound.currentTime = 0;
+buttonSound.play();
+}
+if(e.target.tagName === "A"){
+linkSound.currentTime = 0;
+linkSound.play();
+}
+});
+
+/* mute toggle */
+muteBtn.onclick = function(){
+if(bgmusic.muted){
+bgmusic.muted = false;
+muteBtn.innerText = "mute";
+}else{
+bgmusic.muted = true;
+muteBtn.innerText = "unmute";
+}
+};
+</script>
 
 </body>
 </html>
