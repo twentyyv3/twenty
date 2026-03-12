@@ -3,15 +3,13 @@
 ##                                                                                                    ##
 ! Issues:
 
- Backround music is broken, some links may be broken or blocked.
-##                                                                                                    ##
-Search works, but clearing all filters does not reset results; all items still show
+ Backround music is broken, some links may be damaged or blocked.
 ##                                                                                                    ##
 + Working:
 
 All other features should function as expected
 ##                                                                                                    ##
-**UPDATE LOG: added new games so uh cool**
+**UPDATE LOG: added new games, and fixed search bar.**
 ##                                                                                                    ##
 > Base Site:
 https://twentyyv3.github.io/twenty/
