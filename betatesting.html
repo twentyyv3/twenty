@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>twenty</title>
+<link id="favicon" rel="icon" type="image/gif" href="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXptcXhsOTQxM242djh5aHdzeTczNGgyc2RtMnhua3dzeHpxZGtlbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PkKzNQjwPy7GvxZbfe/giphy.gif">
+
+<style>
+body{
+margin:0;
+font-family:Consolas, monospace;
+color:white;
+background:url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmJnOW9sMzB2N3FvZ2pnODA5N3pnd3IxdGE1em1ob2xwdXFzdjh6ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SVCSsoKU5v6ZJLk07n/giphy.webp");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.7);
+z-index:-1;
+}
+
+#boot{
+position:fixed;
+inset:0;
+background:black;
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+font-size:18px;
+letter-spacing:2px;
+z-index:999;
+}
+
+.boottext{
+opacity:0;
+animation:bootline 1s forwards;
+}
+.boottext:nth-child(2){animation-delay:1s}
+.boottext:nth-child(3){animation-delay:2s}
+.boottext:nth-child(4){animation-delay:3s}
+
+@keyframes bootline{to{opacity:1}}
+
+#app{display:none;}
+
+.topbar{
+height:42px;
+background:rgba(10,10,10,0.9);
+border-bottom:1px solid white;
+display:flex;
+align-items:center;
+padding-left:14px;
+letter-spacing:1px;
+box-shadow:0 0 12px white;
+}
+
+.wrapper{
+display:flex;
+height:calc(100vh - 42px);
+}
+
+.sidebar{
+width:220px;
+background:rgba(0,0,0,0.8);
+border-right:1px solid white;
+}
+
+.sidebar button{
+width:100%;
+background:none;
+border:none;
+border-bottom:1px solid rgba(255,255,255,0.15);
+color:white;
+padding:14px;
+text-align:left;
+cursor:pointer;
+transition:.25s;
+}
+
+.sidebar button:hover{
+background:rgba(255,255,255,0.1);
+box-shadow:0 0 10px white;
+}
+
+.content{
+flex:1;
+padding:25px;
+overflow:auto;
+}
+
+.section{
+display:none;
+animation:fade .35s ease;
+}
+
+.section.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(8px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.link{
+display:block;
+padding:10px;
+margin-bottom:8px;
+border:1px solid white;
+text-decoration:none;
+color:white;
+transition:.2s;
+}
+
+.link:hover{
+background:rgba(255,255,255,0.08);
+box-shadow:0 0 12px white;
+padding-left:16px;
+}
+
+.search{
+margin-bottom:20px;
+}
+
+.search input{
+width:100%;
+padding:10px;
+background:black;
+border:1px solid white;
+color:white;
+font-family:Consolas;
+outline:none;
+}
+
+.search input:focus{
+box-shadow:0 0 10px white;
+}
+
+#logo{
+animation:fontcycle 6s infinite;
+}
+
+@keyframes fontcycle{
+0%{font-family:Consolas, monospace;}
+25%{font-family:Courier New, monospace;}
+50%{font-family:Lucida Console, monospace;}
+75%{font-family:monospace;}
+100%{font-family:Consolas, monospace;}
+}
+</style>
+
+</head>
+<body>
+
+<div id="boot">
+<div class="boottext">initializing interface</div>
+<div class="boottext">loading modules</div>
+<div class="boottext">starting twenty framework</div>
+<div class="boottext">ready</div>
+</div>
+
+<div id="app">
+
+<div class="topbar">
+<span id="logo">twenty</span> - beta
+</div>
+
+<div class="wrapper">
+
+<div class="sidebar">
+<button onclick="openTab('games')">unblocked games</button>
+<button onclick="openTab('hubs')">unblocked game hubs</button>
+<button onclick="openTab('tools')">tools</button>
+<button onclick="openTab('credits')">credits</button>
+</div>
+
+<div class="content">
+
+<div class="search">
+<input id="searchbar" onkeyup="searchLinks()" placeholder="search links...">
+</div>
+
+<div id="games" class="section active">
+<h2>unblocked games</h2>
+
+<a class="link" href="https://turbowarp.org/220672247?fps=120&offscreen&limitless&hqpen" target="_blank">osu mania turbowarp</a>
+<a class="link" href="https://jcw87.github.io/c2-sans-fight/" target="_blank">sans fight</a>
+<a class="link" href="https://levixddlmao.github.io/FNF-UNBLOCKED/funkplay/index.html" target="_blank">funkplay(fnf)</a>
+<a class="link" href="https://levixddlmao.github.io/FNF-UNBLOCKED/Vs%20Dave/index.html" target="_blank">fnf (dave and bambi mod)</a>
+<a class="link" href="https://jxmked.github.io/Flappybird/" target="_blank">FlappyBird</a>
+<a class="link" href="https://www.thatshaman.com/games/charrio/" target="_blank">MarioKart/CharrioKart(64bit)</a>
+<a class="link" href="https://twentyyv3.github.io/GamesForTwentyHub/eagcraft" target="_blank">eaglercraft/ogmc</a>
+
+</div>
+
+<div id="hubs" class="section">
+<h2>unblocked game hubs</h2>
+<a class="link" href="https://unblocked-games.s3.amazonaws.com/index.html" target="_blank">freezenova</a>
+<a class="link" href="https://shrimpgames.neocities.org/" target="_blank">shrimpisgud</a>
+</div>
+
+<div id="tools" class="section">
+<h2>tools</h2>
+</div>
+
+<div id="credits" class="section">
+<h2>credits</h2>
+<p>made by riley</p>
+<p>languages used:</p>
+<p>html</p>
+<p>css</p>
+<p>javascript</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- background music -->
+<audio id="bgmusic" loop>
+  <source src="musicback.mp3" type="audio/mpeg">
+</audio>
+
+<!-- mute button bottom right -->
+<button id="muteBtn" style="position:fixed;bottom:15px;right:15px;background:black;color:white;border:1px solid white;padding:8px 12px;font-family:Consolas, monospace;cursor:pointer;z-index:9999;">
+mute
+</button>
+
+<script>
+function openTab(id){
+let sections=document.querySelectorAll(".section");
+sections.forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+function searchLinks(){
+let input=document.getElementById("searchbar").value.toLowerCase();
+let links=document.querySelectorAll(".link");
+
+links.forEach(link=>{
+let text=link.innerText.toLowerCase();
+
+if(text.includes(input)){
+link.style.display="block";
+}else{
+link.style.display="none";
+}
+});
+}
+
+window.onload=function(){
+setTimeout(()=>{
+document.getElementById("boot").style.display="none";
+document.getElementById("app").style.display="block";
+},4500);
+}
+
+/* sound effects */
+const buttonSound = new Audio("buttonclick.mp3");
+const linkSound = new Audio("linkpress.mp3");
+const bgmusic = document.getElementById("bgmusic");
+const muteBtn = document.getElementById("muteBtn");
+
+/* start bg music on first click to satisfy autoplay restrictions */
+let musicStarted = false;
+
+document.addEventListener("click", function(e){
+  if(!musicStarted){
+    bgmusic.play().catch(()=>{});
+    musicStarted = true;
+  }
+
+  if(e.target.tagName === "BUTTON"){
+    buttonSound.currentTime = 0;
+    buttonSound.play();
+  }
+
+  if(e.target.tagName === "A"){
+    linkSound.currentTime = 0;
+    linkSound.play();
+  }
+});
+
+/* mute/unmute toggle */
+muteBtn.onclick = function(){
+  if(bgmusic.muted){
+    bgmusic.muted = false;
+    muteBtn.innerText = "mute";
+  }else{
+    bgmusic.muted = true;
+    muteBtn.innerText = "unmute";
+  }
+};
+</script>
+
+</body>
+</html>
