@@ -169,11 +169,9 @@ let links=document.querySelectorAll(".link");
 
 links.forEach(link=>{
 let text=link.innerText.toLowerCase();
-let section=link.closest(".section");
 
 if(text.includes(input)){
 link.style.display="block";
-section.style.display="block";
 }else{
 link.style.display="none";
 }
@@ -221,7 +219,16 @@ document.getElementById("app").style.display="block";
 
 <div id="games" class="section active">
 <h2>unblocked games</h2>
+
 <a class="link" href="https://unblocked-games.s3.amazonaws.com/index.html" target="_blank">freezenova</a>
+<a class="link" href="https://turbowarp.org/220672247?fps=120&offscreen&limitless&hqpen" target="_blank">osu mania turbowarp</a>
+<a class="link" href="https://jcw87.github.io/c2-sans-fight/" target="_blank">sans fight</a>
+<a class="link" href="https://levixddlmao.github.io/FNF-UNBLOCKED/funkplay/index.html" target="_blank">funkplay(fnf)</a>
+<a class="link" href="https://levixddlmao.github.io/FNF-UNBLOCKED/Vs%20Dave/index.html" target="_blank">fnf (dave and bambi mod)</a>
+<a class="link" href="https://jxmked.github.io/Flappybird/" target="_blank">FlappyBird</a>
+<a class="link" href="https://www.thatshaman.com/games/charrio/" target="_blank">MarioKart/CharrioKart(64bit)</a>
+<a class="link" href="https://twentyyv3.github.io/GamesForTwentyHub/eagcraft" target="_blank">eaglercraft/ogmc</a>
+
 </div>
 
 <div id="hubs" class="section">
