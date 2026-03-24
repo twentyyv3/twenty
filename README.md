@@ -35,7 +35,7 @@ javascript
 
 
 oh uh heres a free bookmarklet calc for any site
-alert('use "c" on your keyboard to open calc and use "x" to fully close/delete script, this is beta and creds to twenty/riley');
+alert('use "c" on your keyboard to open calc, this is beta and creds to twenty/riley. Might add a full ui, talk to me in person if u want full ui ill probably make it');
 
 function calcHandler(e){
     const k = e.key.toLowerCase();
